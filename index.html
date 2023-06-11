@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Indian Name Generator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Indian Name Generator</h1>
+        <div class="name-generator">
+            <p id="generated-name"></p>
+            <button onclick="generateName()">Generate Name</button>
+            <div class="filters">
+                <h3>Filters</h3>
+                <div class="filter-group">
+                    <label for="first-name-filter">First Name Starts With:</label>
+                    <input type="text" id="first-name-filter" placeholder="Enter a letter">
+                </div>
+                <div class="filter-group">
+                    <label for="last-name-filter">Last Name Starts With:</label>
+                    <input type="text" id="last-name-filter" placeholder="Enter a letter">
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>&copy; <span id="currentYear"></span> The Anviya Group. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        const currentYear = new Date().getFullYear();
+        document.getElementById('currentYear').textContent = currentYear;
+    </script>
+</body>
+</html>
