@@ -4,7 +4,6 @@
     <title>Indian Name Generator</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
 </head>
 <body>
     <div class="container">
@@ -12,17 +11,6 @@
         <div class="name-generator">
             <p id="generated-name"></p>
             <button onclick="generateName()">Generate Name</button>
-            <div class="filters">
-                <h3>Filters (Leave blank if you don't wish to specify initials of your choice)</h3>
-                <div class="filter-group">
-                    <label for="first-name-filter">First Name Starts With:</label>
-                    <input type="text" id="first-name-filter" placeholder="Enter a letter">
-                </div>
-                <div class="filter-group">
-                    <label for="last-name-filter">Last Name Starts With:</label>
-                    <input type="text" id="last-name-filter" placeholder="Enter a letter">
-                </div>
-            </div>
         </div>
         <footer>
             <p>&copy; <span id="currentYear"></span> The Anviya Group. All rights reserved.</p>
@@ -33,6 +21,10 @@
     <script>
         const currentYear = new Date().getFullYear();
         document.getElementById('currentYear').textContent = currentYear;
+
+        function generateName() {
+            // Add your name generation logic here
+        }
     </script>
 </body>
 </html>
