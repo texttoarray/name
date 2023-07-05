@@ -209,15 +209,23 @@ const lastNames = [
 
 
 function generateName() {
-  // Generate a random first name
-  const randomFirstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+    const firstNameFilter = document.getElementById("first-name-filter").value.toLowerCase();
+    const lastNameFilter = document.getElementById("last-name-filter").value.toLowerCase();
 
-  // Generate a random last name
-  const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+    const filteredFirstNames = firstNames.filter(name => name.toLowerCase().startsWith(firstNameFilter));
+    const filteredLastNames = lastNames.filter(name => name.toLowerCase().startsWith(lastNameFilter));
 
-  // Combine the first name and last name
-  const fullName = randomFirstName + " " + randomLastName;
+    const firstName = getRandomName(filteredFirstNames);
+    const lastName = getRandomName(filteredLastNames);
 
-  // Update the generated name element with the generated full name
-  document.getElementById("generated-name").textContent = fullName;
+    const fullName = firstName + " " + lastName;
+
+    document.getElementById("generated-name").textContent = fullName;
+}
+
+function getRandomName(names) {
+    if (names.length === 0) {
+        return "N/A (Change Filter Value or Leave Blank)";
+    }
+    return names[Math.floor(Math.random() * names.length)];
 }
