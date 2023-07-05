@@ -3,7 +3,6 @@
 <head>
     <title>Indian Name Generator</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
     <div class="container">
@@ -11,6 +10,17 @@
         <div class="name-generator">
             <p id="generated-name"></p>
             <button onclick="generateName()">Generate Name</button>
+            <div class="filters">
+                <h3>Filters</h3>
+                <div class="filter-group">
+                    <label for="first-name-filter">First Name Starts With:</label>
+                    <input type="text" id="first-name-filter" placeholder="Enter a letter">
+                </div>
+                <div class="filter-group">
+                    <label for="last-name-filter">Last Name Starts With:</label>
+                    <input type="text" id="last-name-filter" placeholder="Enter a letter">
+                </div>
+            </div>
         </div>
         <footer>
             <p>&copy; <span id="currentYear"></span> The Anviya Group. All rights reserved.</p>
@@ -22,8 +32,23 @@
         const currentYear = new Date().getFullYear();
         document.getElementById('currentYear').textContent = currentYear;
 
+        const firstNames = [
+            // List of Indian first names
+        ];
+
         function generateName() {
-            // Add your name generation logic here
+            const firstNameFilter = document.getElementById('first-name-filter').value.toLowerCase();
+            const lastNameFilter = document.getElementById('last-name-filter').value.toLowerCase();
+
+            let filteredFirstNames = firstNames;
+
+            if (firstNameFilter) {
+                filteredFirstNames = filteredFirstNames.filter(name => name.toLowerCase().startsWith(firstNameFilter));
+            }
+
+            const randomIndex = Math.floor(Math.random() * filteredFirstNames.length);
+            const generatedName = filteredFirstNames[randomIndex];
+            document.getElementById('generated-name').textContent = generatedName;
         }
     </script>
 </body>
