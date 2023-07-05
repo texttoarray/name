@@ -209,9 +209,15 @@ const lastNames = [
 
 
 function generateName() {
-    const randomFirstName = firstNames[Math.floor(Math.random() * firstNames.length)];
-    const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
-    const generatedName = `${randomFirstName} ${randomLastName}`;
-    
-    document.getElementById('generated-name').textContent = generatedName;
+  // Generate a random first name
+  const randomFirstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+
+  // Generate a random last name
+  const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+
+  // Combine the first name and last name
+  const fullName = randomFirstName + " " + randomLastName;
+
+  // Update the generated name element with the generated full name
+  document.getElementById("generated-name").textContent = fullName;
 }
